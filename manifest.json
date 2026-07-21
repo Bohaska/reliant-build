@@ -1,0 +1,163 @@
+{
+  "manifest_version": 3,
+  "name": "Reliant",
+  "version": "3.2.0",
+  "description": "Ease of defending in NationStates military gameplay.",
+  "author": "Haku, Jiangbei",
+  "icons": {
+    "16": "icons/icon16.png",
+    "24": "icons/icon24.png",
+    "32": "icons/icon32.png"
+  },
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "webRequest",
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess"
+  ],
+  "host_permissions": [
+    "https://*.nationstates.net/*",
+    "https://mail.google.com/*"
+  ],
+  "background": {
+    "service_worker": "js/background.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "24": "icons/icon24.png",
+      "32": "icons/icon32.png"
+    },
+    "default_title": "Reliant",
+    "default_popup": "html/popup.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "audio/*"
+      ],
+      "matches": [
+        "https://*.nationstates.net/*"
+      ]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.nationstates.net/*"
+      ],
+      "exclude_matches": [
+        "https://forum.nationstates.net/*"
+      ],
+      "run_at": "document_end",
+      "js": [
+        "js/api-helper.js",
+        "js/switcher-order.js",
+        "js/main.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.nationstates.net/*"
+      ],
+      "run_at": "document_end",
+      "js": [
+        "js/notyf.min.js"
+      ],
+      "css": [
+        "css/notyf.min.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.nationstates.net/page=blank/reliant=settings"
+      ],
+      "run_at": "document_end",
+      "js": [
+        "js/settings.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.nationstates.net/template-overall=none/page=blank/reliant=main"
+      ],
+      "run_at": "document_end",
+      "js": [
+        "js/mainpage.js"
+      ],
+      "css": [
+        "css/mainpage-modern.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://mail.google.com/*"
+      ],
+      "run_at": "document_end",
+      "js": [
+        "js/switcher-order.js",
+        "js/joinwa.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.nationstates.net/page=join_WA?*"
+      ],
+      "run_at": "document_end",
+      "js": [
+        "js/joinwa-fallback.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.nationstates.net/page=ajax2*"
+      ],
+      "run_at": "document_end",
+      "js": [
+        "js/ajax2.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.nationstates.net/template-overall=none/page=blank/reliant=prep"
+      ],
+      "run_at": "document_end",
+      "js": [
+        "js/prep.js"
+      ],
+      "css": [
+        "css/prep-modern.css"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.nationstates.net/region=*",
+        "https://*.nationstates.net/*/region=*",
+        "https://*.nationstates.net/region=*/*"
+      ],
+      "run_at": "document_end",
+      "js": [
+        "js/region.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.nationstates.net/nation=*"
+      ],
+      "run_at": "document_end",
+      "js": [
+        "js/nation.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.nationstates.net/page=blank/reliant=trackednations"
+      ],
+      "run_at": "document_end",
+      "js": [
+        "js/my-tracked-nations.js"
+      ]
+    }
+  ]
+}
