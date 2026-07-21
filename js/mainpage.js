@@ -3246,7 +3246,7 @@
         document.querySelector('#raider-jp').value = result.raiderjp || '';
         occupationSequence.innerHTML = result.occupationsequence || 'Ready';
         updateOccupationModeDisplay(Boolean(result.occupationmode));
-        applyOperationMode(result.operationmode || 'defending');
+        applyOperationMode('defending');
         renderTrackedDossierNations();
         await restoreChaseAssistState();
     });

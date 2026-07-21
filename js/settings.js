@@ -145,7 +145,7 @@ a dossier button on the main page. Useful for chasing specific teams. <b>Leave b
 </fieldset>
 <fieldset>
 <legend>Operation Mode</legend>
-<p>Raiding moves the update predictor above chasing.</p>
+<p>Raiding doesn't do anything, like PRAF at update.</p>
 <p>
 <label for="operation-mode-defending">
 <input type="radio" name="operation-mode" id="operation-mode-defending" value="defending">
